@@ -22,6 +22,16 @@ public class GenericsCode {
         }
         System.out.println("Maximum of " + a + "," + b + "," + c + " is: " + max);
     }
+    public void FindMaxString(String h, String i, String j){
+        String max = h;
+        if((i.compareTo(max))>0){
+            max = i;
+        }
+        if((j.compareTo(max))>0){
+            max =j;
+        }
+        System.out.println("Maximum of " + h + "," + i + "," + j + " is: " + max);
+    }
 
     public static void main(String[] args) {
         GenericsCode max = new GenericsCode();
@@ -43,6 +53,16 @@ public class GenericsCode {
         max.FindMaxFloat(e, d, f);
 //        test case 3 :- Given max Number at 3rd Position return the same Number
         max.FindMaxFloat(f, e, d);
+
+        String h="Sachin", i="Ramesh", j="Tendulkar";
+        System.out.println("String Values....");
+//        test case 1 :- Given max Number at 1st Position return the same Number
+        max.FindMaxString(h, i, j);
+//        test case 2 :- Given max Number at 2nd Position return the same Number
+        max.FindMaxString(i, h, j);
+//        test case 3 :- Given max Number at 3rd Position return the same Number
+        max.FindMaxString(j, i, i);
+
 
     }
 }
