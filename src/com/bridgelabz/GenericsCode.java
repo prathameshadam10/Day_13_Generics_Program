@@ -1,36 +1,18 @@
 package com.bridgelabz;
 
 public class GenericsCode {
-//       Integer Element
-    public void FindMaxInt(Integer a, Integer b, Integer c){
-        int max = a;
+//   
+    public static <T extends Comparable<T>> T findMax(T a, T b, T c){
+
+//
+        T max = a;
         if((b.compareTo(max))>0){
             max = b;
         }
         if((c.compareTo(max))>0){
             max =c;
         }
-        System.out.println("Maximum of " + a + "," + b + "," + c + " is: " + max);
-    }
-    public void FindMaxFloat(Float a, Float b, Float c){
-        float max = a;
-        if((b.compareTo(max))>0){
-            max = b;
-        }
-        if((c.compareTo(max))>0){
-            max =c;
-        }
-        System.out.println("Maximum of " + a + "," + b + "," + c + " is: " + max);
-    }
-    public void FindMaxString(String h, String i, String j){
-        String max = h;
-        if((i.compareTo(max))>0){
-            max = i;
-        }
-        if((j.compareTo(max))>0){
-            max =j;
-        }
-        System.out.println("Maximum of " + h + "," + i + "," + j + " is: " + max);
+        return max;
     }
 
     public static void main(String[] args) {
@@ -38,34 +20,44 @@ public class GenericsCode {
         Integer a=30, b=20, c=10;
         System.out.println("Integer Values....");
 //        test case 1 :- Given max Number at 1st Position return the same Number
-        max.FindMaxInt(a, b, c);
+      int max1 =  findMax(a, b, c);
+        System.out.println(max1);
 //        test case 2 :- Given max Number at 2nd Position return the same Number
-        max.FindMaxInt(b, a, c);
+        int max2 = findMax(b, a, c);
+        System.out.println(max2);
 //        test case 3 :- Given max Number at 3rd Position return the same Number
-        max.FindMaxInt(c, b, a);
-
+        int max3 = findMax(c, b, a);
+        System.out.println(max3);
         Float d=25.5f, e=15.5f, f=5.5f;
 
         System.out.println("Float Values....");
 //        test case 1 :- Given max Number at 1st Position return the same Number
-        max.FindMaxFloat(d, e, f);
+       float max4 = findMax(d, e, f);
+        System.out.println(max4);
 //        test case 2 :- Given max Number at 2nd Position return the same Number
-        max.FindMaxFloat(e, d, f);
+        float max5 = findMax(e, d, f);
+        System.out.println(max5);
+
 //        test case 3 :- Given max Number at 3rd Position return the same Number
-        max.FindMaxFloat(f, e, d);
+       float max6 = findMax(f, e, d);
+        System.out.println(max6);
 
         String h="Sachin", i="Ramesh", j="Tendulkar";
         System.out.println("String Values....");
 //        test case 1 :- Given max Number at 1st Position return the same Number
-        max.FindMaxString(h, i, j);
+       String max7 = findMax(h, i, j);
+        System.out.println(max7);
 //        test case 2 :- Given max Number at 2nd Position return the same Number
-        max.FindMaxString(i, h, j);
+         String max8 = findMax(i, h, j);
+        System.out.println(max8);
 //        test case 3 :- Given max Number at 3rd Position return the same Number
-        max.FindMaxString(j, i, i);
+      String max9 = findMax(j, i, i);
+        System.out.println(max9);
 
 
     }
 }
+
 
 
 
