@@ -1,35 +1,32 @@
 package com.bridgelabz;
 
-public class MaximumGeneric<T extends  Comparable<T>>{
-    private T a;
-    private T b;
-    private T c;
+import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-    public MaximumGeneric(T a, T b, T c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+public class MaximumGeneric<T extends  Comparable<T>>{
+   private List<T> values;
+
+    public MaximumGeneric(T... values) {
+        this.values = Arrays.asList(values);
     }
-    public T findMax(){
-        T max = a;
-        if(b.compareTo(max)>0){
-            max = b;
-        }
-        if(c.compareTo(max)>0){
-            max = c;
-        }
-        return max;
+
+    public T findMax() {
+        Collections.sort(values);
+        return values.get(values.size() - 1);
     }
 
     public static void main(String[] args) {
 //        test case for integers
-        MaximumGeneric<Integer> intMax = new MaximumGeneric<>(10,20,2);
+        MaximumGeneric<Integer> intMax = new MaximumGeneric<>(10,20,2,35,44);
         System.out.println(intMax.findMax());
 //        test case for floats
-        MaximumGeneric<Float> floatMax = new MaximumGeneric<>(2.3f,3.4f,7.8f);
+        MaximumGeneric<Float> floatMax = new MaximumGeneric<>(2.3f,7.8f,8.9f,15.7f,5.5f);
         System.out.println(floatMax.findMax());
 //        test case for Strings
-        MaximumGeneric<String> stringMax = new MaximumGeneric<>("Tendulkar","Ramesh","Sachin");
-        System.out.println(stringMax.findMax());
+        MaximumGeneric<String> stringMax = new MaximumGeneric<>("Sachin","Rohit","Jasprit","Laxmipati","TenDulkar");
+        System.out.println("Test Case: The Maximum String is :"+ stringMax.findMax());
     }
 }
